@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -37,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'frontend',
 ]
 
 MIDDLEWARE = [
@@ -50,6 +52,12 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'ecommerce.urls'
+
+SETTINGS_PATH = os.path.dirname(os.path.dirname(__file__))
+TEMPLATE_DIRS = (
+    os.path.join(SETTINGS_PATH, 'templates'),
+)
+
 
 TEMPLATES = [
     {
@@ -121,3 +129,6 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'

@@ -5,4 +5,4 @@ from .models import *
 
 def products(request):
     products = Products.objects.all()
-    return render(request, 'products.html', {'products': products})
+    return render(request, 'product.html', {'products': products})
